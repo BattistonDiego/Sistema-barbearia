@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* pega toda a altura da tela */
+}
+
+app-header {
+  height: 64px;
+  width: 100%;
+  flex-shrink: 0; /* Impede que o header e o footer sejam encolhidos mesmo em telas pequenas. */
+  background-color: #000000;
+  color: #fff;
+}
+
+app-footer {
+  height: 330px;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #000000;
+  color: #fff;
+}
+
+.conteudo {
+  flex: 1; /* Ocupa todo o espaço disponível que sobrou dentro do flex container. */
+  overflow-y: auto;
+  background-image: url("assets/svg/image-back.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
