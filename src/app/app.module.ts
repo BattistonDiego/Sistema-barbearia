@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ServicosComponent } from './pages/servicos/servicos.component'; // ← importa aqui
 import { HttpClientModule } from '@angular/common/http';
+import { BabeirosComponent } from './pages/babeiros/babeiros.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     ServicosComponent,
+    BabeirosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
