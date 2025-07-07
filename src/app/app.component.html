@@ -1,7 +1,7 @@
 <div class="container">
   <app-header></app-header>
 
-  <main class="conteudo">
+  <main [ngClass]="{ 'home-background': isHomeRoute() }" class="conteudo">
     <router-outlet></router-outlet>
   </main>
 
