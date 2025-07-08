@@ -1,0 +1,62 @@
+<div class="content">
+    <h1>Agende seu horário</h1>
+    <p>Escolha o serviço, profissional e horário de sua preferência.</p>
+    <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="detalhesFormGroup">
+            <form [formGroup]="detalhesFormGroup">
+                <ng-template matStepLabel>
+                    <div class="number-one">1</div>
+                </ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Serviços</mat-label>
+                    <select matNativeControl formControlName="servico">
+                        <option value="" selected></option>
+                        <option>Corte Clássico</option>
+                        <option>Barba Completa</option>
+                        <option>Combo Corte + Barba</option>
+                        <option>Acabamento Navalhado</option>
+                    </select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Barbeiros</mat-label>
+                    <select matNativeControl formControlName="barbeiro">
+                        <option value="" selected></option>
+                        <option>Gabriel</option>
+                        <option>Giovanni</option>
+                        <option>Fabio</option>
+                    </select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <label for="servico">Data</label>
+                    <input id="servico" matInput placeholder="Last name, First name" formControlName="data" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>
+                    <div class="number-two">2</div>
+                </ng-template>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>
+                <div class="number-three">3</div>
+            </ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

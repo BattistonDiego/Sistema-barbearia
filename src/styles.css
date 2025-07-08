@@ -37,6 +37,7 @@ app-footer {
   flex-direction: column;
   height: 100%;
   background-color: #19191c;
+  /* background-color: #fff; */
 }
 
 .home-background {
@@ -44,4 +45,13 @@ app-footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

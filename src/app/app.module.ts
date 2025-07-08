@@ -10,6 +10,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ServicosComponent } from './pages/servicos/servicos.component'; // ← importa aqui
 import { HttpClientModule } from '@angular/common/http';
 import { BabeirosComponent } from './pages/babeiros/babeiros.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgendarComponent } from './pages/agendar/agendar.component';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +28,20 @@ import { BabeirosComponent } from './pages/babeiros/babeiros.component';
     FooterComponent,
     ServicosComponent,
     BabeirosComponent,
+    AgendarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
