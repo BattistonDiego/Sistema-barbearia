@@ -15,6 +15,21 @@ export class AgendarComponent implements OnInit {
   servico: string = '';
   barbeiro: string = '';
 
+  listServico = [
+    'Corte Clássico',
+    'Barba Completa',
+    'Combo Corte + Barba',
+    'Acabamento Navalhado',
+  ];
+
+  listBarbeiro = ['Gabriel', 'Giovanni', 'Fabio'];
+
+  listDadosPessoais = [
+    { label: 'Nome', control: 'nome' },
+    { label: 'Telefone', control: 'telefone' },
+    { label: 'Email', control: 'email' },
+  ];
+
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -22,6 +37,14 @@ export class AgendarComponent implements OnInit {
       servico: ['', Validators.required],
       barbeiro: ['', Validators.required],
       data: ['', Validators.required], // exemplo se você tiver o campo "data"
+      hora: ['', Validators.required],
+      nome: ['', Validators.required],
+      telefone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
     });
+  }
+
+  dadosCorte() {
+    console.log(this.detalhesFormGroup.value);
   }
 }

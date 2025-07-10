@@ -1,0 +1,52 @@
+<form [formGroup]="detalhesFormGroup">
+
+    <div class="step-one" *ngIf="currentStep === 0">
+        <mat-form-field appearance="fill">
+            <mat-label>Serviços</mat-label>
+            <select matNativeControl formControlName="servico">
+                <option value="" selected></option>
+                <option *ngFor="let servico of listServico" [value]="servico">{{ servico }}</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Barbeiros</mat-label>
+            <select matNativeControl formControlName="barbeiro">
+                <option value="" selected></option>
+                <option *ngFor="let barbeiro of listBarbeiro" [value]="barbeiro">{{ barbeiro }}</option>
+
+            </select>
+        </mat-form-field>
+
+        <div class="date-time">
+            <mat-form-field class="date" appearance="fill">
+                <mat-label>Data</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="data" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="time" appearance="fill">
+                <mat-label>Horário</mat-label>
+                <select matNativeControl formControlName="hora">
+                    <option value="" selected></option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                </select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="step-two" *ngIf="currentStep === 1">
+        <mat-form-field appearance="fill" *ngFor="let dados of listDados">
+            <mat-label>{{dados.label}}</mat-label>
+            <input matInput placeholder="Digite seu {{dados.label}}" [formControlName]="dados.control" required>
+        </mat-form-field>
+    </div>
+</form>

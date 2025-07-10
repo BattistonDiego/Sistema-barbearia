@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { RouterModule } from '@angular/router';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -19,6 +19,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     ServicosComponent,
     BabeirosComponent,
     AgendarComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,10 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSelectModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,50 @@
+form {
+}
+
+.step-one {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+mat-label {
+  color: #fff;
+  margin-left: 10px;
+}
+
+select {
+  color: #ffff !important;
+}
+
+.date-time {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.date-time .date,
+.date-time .time {
+  width: 50%;
+}
+
+.date-time input {
+  width: 300px;
+  color: #fff;
+}
+
+/* Styles Step 2 */
+
+.step-two {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.step-two mat-form-field {
+  width: 100%;
+}
+
+.step-two input {
+  width: 644px;
+  color: #fff;
+}
