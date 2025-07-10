@@ -34,9 +34,24 @@ app-footer {
 
 .conteudo {
   flex: 1; /* Ocupa todo o espaço disponível que sobrou dentro do flex container. */
-  overflow-y: auto;
+  flex-direction: column;
+  height: 100%;
+  background-color: #19191c;
+  /* background-color: #fff; */
+}
+
+.home-background {
   background-image: url("assets/svg/image-back.svg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

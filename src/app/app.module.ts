@@ -3,14 +3,54 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { RouterModule } from '@angular/router';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component'; // ← importa aqui
+import { FooterComponent } from './components/footer/footer.component';
+import { ServicosComponent } from './pages/servicos/servicos.component'; // ← importa aqui
+import { HttpClientModule } from '@angular/common/http';
+import { BabeirosComponent } from './pages/babeiros/babeiros.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgendarComponent } from './pages/agendar/agendar.component';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    ServicosComponent,
+    BabeirosComponent,
+    AgendarComponent,
+    FormComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

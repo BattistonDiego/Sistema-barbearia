@@ -1,0 +1,46 @@
+<div class="content">
+    <h1>Agende seu horário</h1>
+    <p>Escolha o serviço, profissional e horário de sua preferência.</p>
+    <mat-stepper [linear]="isLinear" #stepper>
+        <!-- Step 1 -->
+        <mat-step [stepControl]="detalhesFormGroup">
+            <form [formGroup]="detalhesFormGroup">
+                <ng-template matStepLabel>
+                    <div class="number-one">1</div>
+                </ng-template>
+
+                <app-form [currentStep]="stepper.selectedIndex" [listBarbeiro]="listBarbeiro"
+                    [listServico]="listServico" [detalhesFormGroup]="detalhesFormGroup"></app-form>
+
+                <div class="next">
+                    <button class="next-button" mat-button matStepperNext (click)="dadosCorte()">Próximo</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- Step 2 -->
+        <mat-step [stepControl]="detalhesFormGroup" label="Fill out your address">
+            <form [formGroup]="detalhesFormGroup">
+                <ng-template matStepLabel>
+                    <div class="number-two">2</div>
+                </ng-template>
+                <app-form [currentStep]="stepper.selectedIndex" [detalhesFormGroup]="detalhesFormGroup"
+                    [listDados]="listDadosPessoais"></app-form>
+                <div class="botoes">
+                    <button class="back-button" mat-button matStepperPrevious>Voltar</button>
+                    <button class="next-button" mat-button matStepperNext>Próximo</button>
+                </div>
+            </form>
+        </mat-step>
+        <!-- Step 3 -->
+        <mat-step>
+            <ng-template matStepLabel>
+                <div class="number-three">3</div>
+            </ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

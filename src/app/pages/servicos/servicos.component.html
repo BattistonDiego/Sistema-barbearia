@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="nossos-servicos">
+        <h1>Nossos Serviços</h1>
+        <p>Oferecemos serviços de alta qualidade com os melhores produtos do mercado para garantir
+            sua satisfação.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card-servicos" *ngFor="let items of listServicos">
+            <div class="title">{{ items.titulo }}</div>
+            <p class="description">{{ items.descricao }}</p>
+            <div class="price">{{ items.preco }}</div>
+        </div>
+    </div>
+
+</div>
