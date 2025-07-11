@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormComponent } from './components/form/form.component';
+import { TelefoneBrPipe } from './pipes/telefone-br.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormComponent } from './components/form/form.component';
     BabeirosComponent,
     AgendarComponent,
     FormComponent,
+    TelefoneBrPipe,
   ],
   imports: [
     BrowserModule,
