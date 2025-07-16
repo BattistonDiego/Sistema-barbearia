@@ -49,4 +49,29 @@
             <input matInput placeholder="Digite seu {{dados.label}}" [formControlName]="dados.control" required>
         </mat-form-field>
     </div>
+
+    <div class="step-three" *ngIf="currentStep === 2">
+        <div class="revisao">
+            <div class="cliente">
+                <img src="assets/svg/user-icon.svg" alt="" />
+                <label for="">Cliente: <p>{{detalhesFormGroup.get('nome')?.value}}</p></label>
+            </div>
+            <div class="servico">
+                <img src="assets/svg/cut-icon.svg" alt="" />
+                <label for="">Serviço: <p>{{detalhesFormGroup.get('servico')?.value}}</p></label>
+            </div>
+            <div class="profissional">
+                <img src="assets/svg/user-icon.svg" alt="" />
+                <label for="">Profissional: <p>{{detalhesFormGroup.get('barbeiro')?.value}}</p></label>
+            </div>
+            <div class="data">
+                <img src="assets/svg/date-icon.svg" alt="" />
+                <label for="">Data: <p>{{detalhesFormGroup.get('data')?.value | date:'dd/MM/yyyy'}}</p></label>
+            </div>
+            <div class="horario">
+                <img src="assets/svg/time-icon.svg" alt="" />
+                <label for="">Horário: <p>{{detalhesFormGroup.get('hora')?.value}}</p></label>
+            </div>
+        </div>
+    </div>
 </form>

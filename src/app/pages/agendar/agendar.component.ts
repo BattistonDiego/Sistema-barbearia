@@ -47,4 +47,21 @@ export class AgendarComponent implements OnInit {
   dadosCorte() {
     console.log(this.detalhesFormGroup.value);
   }
+
+  validaCamposStep1(): boolean {
+    return this.detalhesFormGroup.get('servico')?.value &&
+      this.detalhesFormGroup.get('barbeiro')?.value &&
+      this.detalhesFormGroup.get('data')?.value &&
+      this.detalhesFormGroup.get('hora')?.value
+      ? true
+      : false;
+  }
+
+  validaCamposStep2(): boolean {
+    return this.detalhesFormGroup.get('nome')?.value &&
+      this.detalhesFormGroup.get('telefone')?.value &&
+      this.detalhesFormGroup.get('email')?.value
+      ? true
+      : false;
+  }
 }

@@ -50,25 +50,25 @@ select {
 }
 
 /* Styles Step 3 */
-.step-three .dados-servicos {
-  border-bottom: 1px solid #d9770626;
+
+.step-three .cliente,
+.servico,
+.profissional,
+.data,
+.horario {
+  display: flex;
+  height: 52px;
+
+  align-items: start;
+  gap: 6px;
 }
 
-.step-three h1 {
-  color: #fff;
-  margin-bottom: 4px;
+.step-three label {
+  color: #9ca3af;
+  font-size: 12px;
 }
 
 .step-three p {
   color: #fff;
-  margin-bottom: 0;
-}
-h3 {
-  margin-bottom: 8px;
-}
-.default {
-  display: flex;
-  gap: 8px;
-  color: #d97706;
-  margin-bottom: 12px;
+  font-size: 14px;
 }

@@ -1,1 +1,11 @@
-<p>babeiros works!</p>
+<div class="content">
+    <div class="teste">
+        <h1>Testando</h1>
+        <input [(ngModel)]="novoItem" placeholder="Adicionar item" type="text">
+        <button (click)="adicionarItem(novoItem)">Adicionar intem na lista </button>
+        <ul>
+            <li *ngFor="let item of frutas">{{ item }}</li>
+        </ul>
+    </div>
+
+</div>

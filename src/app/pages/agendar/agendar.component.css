@@ -65,10 +65,9 @@ option {
   margin-top: 30px;
 }
 
-.botoess {
+.buttons {
   display: flex;
   justify-content: space-between;
-  max-height: 40px;
 }
 
 .next-button {
