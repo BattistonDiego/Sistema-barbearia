@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DadosCadastroAgendamento } from 'src/app/interfaces/agendamento.model';
+import { Funcionario } from 'src/app/interfaces/funcionario.model';
+import { AgendamentoService } from 'src/app/services/agendamento.service';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
 
 @Component({
   selector: 'app-agendar',
@@ -14,6 +18,7 @@ export class AgendarComponent implements OnInit {
   isLinear = false;
   servico: string = '';
   barbeiro: string = '';
+  listFuncionario: Funcionario[] = [];
 
   listServico = [
     'Corte Clássico',
@@ -22,30 +27,46 @@ export class AgendarComponent implements OnInit {
     'Acabamento Navalhado',
   ];
 
-  listBarbeiro = ['Gabriel', 'Giovanni', 'Fabio'];
-
   listDadosPessoais = [
     { label: 'Nome', control: 'nome' },
     { label: 'Telefone', control: 'telefone' },
     { label: 'Email', control: 'email' },
   ];
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private agendamentoService: AgendamentoService,
+    private funcionarioService: FuncionarioService
+  ) {}
 
   ngOnInit(): void {
     this.detalhesFormGroup = this._formBuilder.group({
       servico: ['', Validators.required],
       barbeiro: ['', Validators.required],
-      data: ['', Validators.required], // exemplo se você tiver o campo "data"
+      data: ['', Validators.required],
       hora: ['', Validators.required],
       nome: ['', Validators.required],
       telefone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     });
+
+    this.getFuncionarios();
   }
 
-  dadosCorte() {
-    console.log(this.detalhesFormGroup.value);
+  getFuncionarios() {
+    this.funcionarioService.getListFuncionarios().subscribe({
+      next: (res) => {
+        this.listFuncionario = res;
+      },
+    });
+  }
+
+  postAgendamento() {
+    const body = this.buildObject();
+
+    this.agendamentoService.postAgendamentos(body).subscribe();
+
+    console.log(body);
   }
 
   validaCamposStep1(): boolean {
@@ -63,5 +84,22 @@ export class AgendarComponent implements OnInit {
       this.detalhesFormGroup.get('email')?.value
       ? true
       : false;
+  }
+
+  buildObject(): DadosCadastroAgendamento {
+    const dataFormatada = this.detalhesFormGroup.value.data
+      .toISOString()
+      .split('T')[0]; // "2025-07-18"
+
+    const obj: DadosCadastroAgendamento = {
+      funcionarioId: this.detalhesFormGroup.value.barbeiro,
+      clienteNome: this.detalhesFormGroup.value.nome,
+      clienteTelefone: this.detalhesFormGroup.value.telefone,
+      clienteEmail: this.detalhesFormGroup.value.email,
+      data: dataFormatada,
+      hora: this.detalhesFormGroup.value.hora,
+      servico: this.detalhesFormGroup.value.servico,
+    };
+    return obj;
   }
 }

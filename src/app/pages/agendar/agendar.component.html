@@ -9,12 +9,12 @@
                     <div class="number-one">1</div>
                 </ng-template>
 
-                <app-form [currentStep]="stepper.selectedIndex" [listBarbeiro]="listBarbeiro"
+                <app-form [listFuncionarios]="listFuncionario" [currentStep]="stepper.selectedIndex"
                     [listServico]="listServico" [detalhesFormGroup]="detalhesFormGroup"></app-form>
 
                 <div class="next">
-                    <button [disabled]="!validaCamposStep1()" class="next-button" mat-button matStepperNext
-                        (click)="dadosCorte()">Próximo</button>
+                    <button [disabled]="!validaCamposStep1()" class="next-button" mat-button
+                        matStepperNext>Próximo</button>
                 </div>
             </form>
         </mat-step>
@@ -41,7 +41,7 @@
             <app-form [currentStep]="stepper.selectedIndex" [detalhesFormGroup]="detalhesFormGroup"></app-form>
             <div class="buttons">
                 <button mat-button class="back-button" matStepperPrevious>Voltar</button>
-                <button mat-button class="next-button">Agendar</button>
+                <button mat-button class="next-button" (click)="postAgendamento()">Agendar</button>
             </div>
         </mat-step>
     </mat-stepper>

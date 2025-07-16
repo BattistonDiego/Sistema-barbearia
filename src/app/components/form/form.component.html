@@ -13,7 +13,7 @@
             <mat-label>Barbeiros</mat-label>
             <select matNativeControl formControlName="barbeiro">
                 <option value="" selected></option>
-                <option *ngFor="let barbeiro of listBarbeiro" [value]="barbeiro">{{ barbeiro }}</option>
+                <option *ngFor="let barbeiro of listFuncionarios" [value]="barbeiro.id">{{ barbeiro.nome }}</option>
 
             </select>
         </mat-form-field>

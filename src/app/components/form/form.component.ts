@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Funcionario } from 'src/app/interfaces/funcionario.model';
 
 @Component({
   selector: 'app-form',
@@ -9,9 +10,9 @@ import { FormGroup } from '@angular/forms';
 export class FormComponent implements OnInit {
   @Input() detalhesFormGroup!: FormGroup;
   @Input() listServico!: string[];
-  @Input() listBarbeiro!: string[];
   @Input() currentStep!: number;
   @Input() listDados!: { label: string; control: string }[];
+  @Input() listFuncionarios!: Funcionario[];
 
   ngOnInit(): void {
     console.log(this.currentStep);
