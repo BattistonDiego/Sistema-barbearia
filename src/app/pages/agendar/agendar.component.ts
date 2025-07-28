@@ -4,6 +4,8 @@ import { DadosCadastroAgendamento } from 'src/app/interfaces/agendamento.model';
 import { Funcionario } from 'src/app/interfaces/funcionario.model';
 import { AgendamentoService } from 'src/app/services/agendamento.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 @Component({
   selector: 'app-agendar',
@@ -36,7 +38,8 @@ export class AgendarComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private agendamentoService: AgendamentoService,
-    private funcionarioService: FuncionarioService
+    private funcionarioService: FuncionarioService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -46,11 +49,18 @@ export class AgendarComponent implements OnInit {
       data: ['', Validators.required],
       hora: ['', Validators.required],
       nome: ['', Validators.required],
-      telefone: ['', Validators.required],
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
       email: ['', [Validators.required, Validators.email]],
     });
-
     this.getFuncionarios();
+
+    this.detalhesFormGroup.get('telefone')?.valueChanges.subscribe((value) => {
+      if (value && value.length > 11) {
+        this.detalhesFormGroup
+          .get('telefone')
+          ?.setValue(value.slice(0, 11), { emitEvent: false });
+      }
+    });
   }
 
   getFuncionarios() {
@@ -64,7 +74,35 @@ export class AgendarComponent implements OnInit {
   postAgendamento() {
     const body = this.buildObject();
 
-    this.agendamentoService.postAgendamentos(body).subscribe();
+    let dialogRef: MatDialogRef<ModalComponent>;
+
+    this.agendamentoService.postAgendamentos(body).subscribe({
+      next: () => {
+        dialogRef = this.dialog.open(ModalComponent, {
+          data: {
+            sucesso: true,
+            mensagem: 'Agendamento realizado com sucesso!',
+          },
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+          if (result) {
+            console.log(result + ' Modal fechado com sucesso');
+          }
+        });
+      },
+
+      error: (erro) => {
+        console.error('Erro no agendamento:', erro);
+
+        this.dialog.open(ModalComponent, {
+          data: {
+            sucesso: false,
+            mensagem: 'Erro ao agendar, tente novamente mais tarde',
+          },
+        });
+      },
+    });
 
     console.log(body);
   }
@@ -101,5 +139,9 @@ export class AgendarComponent implements OnInit {
       servico: this.detalhesFormGroup.value.servico,
     };
     return obj;
+  }
+
+  teste() {
+    this.dialog.open(ModalComponent);
   }
 }

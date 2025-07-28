@@ -1,0 +1,35 @@
+.modal {
+  width: 400px;
+  height: 250px;
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+}
+
+img {
+  width: 74px;
+}
+
+p {
+  color: #fff;
+}
+
+button {
+  width: 120px;
+  height: 40px;
+  background-color: #f59e0b;
+  color: #000000;
+  border: none;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: none;
+}

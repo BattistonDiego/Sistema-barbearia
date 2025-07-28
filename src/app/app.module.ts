@@ -24,6 +24,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormComponent } from './components/form/form.component';
 import { TelefoneBrPipe } from './pipes/telefone-br.pipe';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { TelefoneBrPipe } from './pipes/telefone-br.pipe';
     AgendarComponent,
     FormComponent,
     TelefoneBrPipe,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { TelefoneBrPipe } from './pipes/telefone-br.pipe';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

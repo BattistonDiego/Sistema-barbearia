@@ -1,0 +1,9 @@
+<div class="modal">
+    <img *ngIf="data.sucesso" src="assets/svg/sucsess-icon.svg" alt="">
+    <img *ngIf="!data.sucesso" src="assets/svg/error-icon.svg" alt="">
+
+    <p *ngIf="data.sucesso">{{ data.mensagem }}</p>
+    <p *ngIf="!data.sucesso">{{ data.mensagem }}</p>
+
+    <button (click)="closeModal()">Fechar</button>
+</div>
