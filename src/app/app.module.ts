@@ -26,6 +26,9 @@ import { FormComponent } from './components/form/form.component';
 import { TelefoneBrPipe } from './pipes/telefone-br.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TesteComponent } from './components/component-testes/teste.component';
+import { TableDynamicComponent } from './components/table-dynamic/table-dynamic.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormComponent,
     TelefoneBrPipe,
     ModalComponent,
+    TesteComponent,
+    TableDynamicComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

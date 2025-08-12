@@ -32,12 +32,10 @@ app-footer {
   color: #fff;
 }
 
-.conteudo {
+main.conteudo {
   flex: 1; /* Ocupa todo o espaço disponível que sobrou dentro do flex container. */
   flex-direction: column;
-  height: 100%;
   background-color: #19191c;
-  /* background-color: #fff; */
 }
 
 .home-background {

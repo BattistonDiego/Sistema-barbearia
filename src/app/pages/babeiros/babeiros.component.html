@@ -1,11 +1,7 @@
 <div class="content">
-    <div class="teste">
-        <h1>Testando</h1>
-        <input [(ngModel)]="novoItem" placeholder="Adicionar item" type="text">
-        <button (click)="adicionarItem(novoItem)">Adicionar intem na lista </button>
-        <ul>
-            <li *ngFor="let item of frutas">{{ item }}</li>
-        </ul>
-    </div>
+    <h1 (click)="mudarDataSource()">Tabela de clientes</h1>
+    <p class="breve-description">Conheça os profissionais que transformarão seu visual com técnica e estilo.</p>
 
+    <app-table-dynamic [displayedColumns]="displayedColumns" [columns]="columns"
+        [dataSource]="dataSource"></app-table-dynamic>
 </div>
